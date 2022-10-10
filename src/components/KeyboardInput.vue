@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <Transition name="slide-fade">
     <h1>Keyboard Input</h1>
-  </div>
+  </Transition>
 </template>
 
 <script>

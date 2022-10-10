@@ -1,7 +1,5 @@
 <template>
-  <main
-    class="min-h-screen p-8 bg-gray-50 flex flex-col justify-center items-center"
-  >
+  <main class="min-h-screen p-4 pt-20 bg-gray-50 flex flex-col items-center">
     <TextAreaInput @toggleKbd="(val) => (toggleKeyboard = val)" />
     <KeyboardInput v-show="toggleKeyboard" />
   </main>
@@ -9,7 +7,7 @@
 
 <script>
 import TextAreaInput from "@/components/TextAreaInput.vue";
-import KeyboardInput from "../components/KeyboardInput.vue";
+import KeyboardInput from "@/components/KeyboardInput.vue";
 export default {
   name: "HomeView",
   components: { TextAreaInput, KeyboardInput },
