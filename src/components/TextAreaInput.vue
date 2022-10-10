@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full max-w-md border rounded overflow-hidden shadow bg-white-50"
+    class="w-full max-w-md mb-5 border rounded overflow-hidden shadow bg-white-50"
   >
     <label
       for="texts"
@@ -12,6 +12,9 @@
       class="shadow form-textarea block w-full py-2 px-3 resize-none text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-gray-300"
       rows="5"
       placeholder="Hey..."
+      v-model="text"
+      @focus="$emit('toggleKbd', true)"
+      @focusout="$emit('toggleKbd', false)"
     ></textarea>
   </div>
 </template>
@@ -19,6 +22,11 @@
 <script>
 export default {
   name: "TextAreaInput",
+  data() {
+    return {
+      text: "",
+    };
+  },
 };
 </script>
 
