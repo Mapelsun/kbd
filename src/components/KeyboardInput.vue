@@ -4,169 +4,21 @@
       class="w-full max-w-2xl rounded bg-gray-500 text-gray-800 text-xs flex items-center justify-center"
     >
       <div class="p-1 overflow-hidden w-full">
-        <div class="flex space-x-[3px] mb-[3px]">
-          <template v-for="key in keys">
-            <div
-              v-if="key.row === '1'"
-              :key="key.label"
-              class="h-10 min-w-10"
-              :class="[key.flexGrow ? 'flex-1' : '', `${key.width}`]"
-            >
-              <button
-                class="overflow-hidden relative h-10 px-1 rounded flex justify-center shadow align-center bg-gradient-to-b from-gray-50 to-gray-400 pt-[2px] transition-all duration-75 top-0 active:top-1"
-                :class="[`${key.width}`]"
-              >
-                <div
-                  class="w-full h-10 absolute -top-[2px] left-0 flex items-center justify-between blur-sm"
-                >
-                  <div
-                    class="h-8 w-8 bg-gray-200 flex-shrink-0 rotate-45 -left-5 relative"
-                  ></div>
-                  <div
-                    class="h-8 w-8 bg-gray-200 flex-shrink-0 rotate-45 -right-5 relative"
-                  ></div>
-                </div>
-                <div
-                  class="relative h-7 border border-gray-100 flex-grow bg-gradient-to-b from-gray-200 to-gray-50 flex pt-1 pl-1 rounded"
-                >
-                  <span class="leading-none">{{ key.label }}</span>
-                </div>
-              </button>
-            </div>
-          </template>
-        </div>
-        <div class="flex space-x-[3px] mb-[3px]">
-          <template v-for="key in keys">
-            <div
-              v-if="key.row === '2'"
-              :key="key.label"
-              class="h-10 min-w-10"
-              :class="[key.flexGrow ? 'flex-1' : '', `${key.width}`]"
-            >
-              <button
-                class="overflow-hidden relative h-10 px-1 rounded flex justify-center shadow align-center bg-gradient-to-b from-gray-50 to-gray-400 pt-[2px] transition-all duration-75 top-0 active:top-1"
-                :class="[`${key.width}`]"
-              >
-                <div
-                  class="w-full h-10 absolute -top-[2px] left-0 flex items-center justify-between blur-sm"
-                >
-                  <div
-                    class="h-8 w-8 bg-gray-200 flex-shrink-0 rotate-45 -left-5 relative"
-                  ></div>
-                  <div
-                    class="h-8 w-8 bg-gray-200 flex-shrink-0 rotate-45 -right-5 relative"
-                  ></div>
-                </div>
-                <div
-                  class="relative h-7 border border-gray-100 flex-grow bg-gradient-to-b from-gray-200 to-gray-50 flex pt-1 pl-1 rounded"
-                >
-                  <span class="leading-none">{{ key.label }}</span>
-                </div>
-              </button>
-            </div>
-          </template>
-        </div>
-        <div class="flex space-x-[3px] mb-[3px]">
-          <template v-for="key in keys">
-            <div
-              v-if="key.row === '3'"
-              :key="key.label"
-              class="h-10 min-w-10"
-              :class="[key.flexGrow ? 'flex-1' : '', `${key.width}`]"
-            >
-              <button
-                class="overflow-hidden relative h-10 px-1 rounded flex justify-center shadow align-center bg-gradient-to-b from-gray-50 to-gray-400 pt-[2px] transition-all duration-75 top-0 active:top-1"
-                :class="[`${key.width}`]"
-              >
-                <div
-                  class="w-full h-10 absolute -top-[2px] left-0 flex items-center justify-between blur-sm"
-                >
-                  <div
-                    class="h-8 w-8 bg-gray-200 flex-shrink-0 rotate-45 -left-5 relative"
-                  ></div>
-                  <div
-                    class="h-8 w-8 bg-gray-200 flex-shrink-0 rotate-45 -right-5 relative"
-                  ></div>
-                </div>
-                <div
-                  class="relative h-7 border border-gray-100 flex-grow bg-gradient-to-b from-gray-200 to-gray-50 flex pt-1 pl-1 rounded"
-                >
-                  <span class="leading-none">{{ key.label }}</span>
-                </div>
-              </button>
-            </div>
-          </template>
-        </div>
-        <div class="flex space-x-[3px] mb-[3px]">
-          <template v-for="key in keys">
-            <div
-              v-if="key.row === '4'"
-              :key="key.label"
-              class="h-10 min-w-10"
-              :class="[key.flexGrow ? 'flex-1' : '', `${key.width}`]"
-            >
-              <button
-                class="overflow-hidden relative h-10 px-1 rounded flex justify-center shadow align-center bg-gradient-to-b from-gray-50 to-gray-400 pt-[2px] transition-all duration-75 top-0 active:top-1"
-                :class="[`${key.width}`]"
-              >
-                <div
-                  class="w-full h-10 absolute -top-[2px] left-0 flex items-center justify-between blur-sm"
-                >
-                  <div
-                    class="h-8 w-8 bg-gray-200 flex-shrink-0 rotate-45 -left-5 relative"
-                  ></div>
-                  <div
-                    class="h-8 w-8 bg-gray-200 flex-shrink-0 rotate-45 -right-5 relative"
-                  ></div>
-                </div>
-                <div
-                  class="relative h-7 border border-gray-100 flex-grow bg-gradient-to-b from-gray-200 to-gray-50 flex pt-1 pl-1 rounded"
-                >
-                  <span class="leading-none">{{ key.label }}</span>
-                </div>
-              </button>
-            </div>
-          </template>
-        </div>
-        <div class="flex space-x-[3px]">
-          <template v-for="key in keys">
-            <div
-              v-if="key.row === '5'"
-              :key="key.label"
-              class="h-10 min-w-10"
-              :class="[key.flexGrow ? 'flex-1' : '', `${key.width}`]"
-            >
-              <button
-                class="overflow-hidden relative h-10 px-1 rounded flex justify-center shadow align-center bg-gradient-to-b from-gray-50 to-gray-400 pt-[2px] transition-all duration-75 top-0 active:top-1"
-                :class="[`${key.width}`]"
-              >
-                <div
-                  class="w-full h-10 absolute -top-[2px] left-0 flex items-center justify-between blur-sm"
-                >
-                  <div
-                    class="h-8 w-8 bg-gray-200 flex-shrink-0 rotate-45 -left-5 relative"
-                  ></div>
-                  <div
-                    class="h-8 w-8 bg-gray-200 flex-shrink-0 rotate-45 -right-5 relative"
-                  ></div>
-                </div>
-                <div
-                  class="relative h-7 border border-gray-100 flex-grow bg-gradient-to-b from-gray-200 to-gray-50 flex pt-1 pl-1 rounded"
-                >
-                  <span class="leading-none">{{ key.label }}</span>
-                </div>
-              </button>
-            </div>
-          </template>
-        </div>
+        <KeyboardRow class="mb-[3px]" :keys="getRowData('1')" />
+        <KeyboardRow class="mb-[3px]" :keys="getRowData('2')" />
+        <KeyboardRow class="mb-[3px]" :keys="getRowData('3')" />
+        <KeyboardRow class="mb-[3px]" :keys="getRowData('4')" />
+        <KeyboardRow :keys="getRowData('5')" />
       </div>
     </main>
   </Transition>
 </template>
 
 <script>
+import KeyboardRow from "@/components/KeyboardRow.vue";
 export default {
   name: "KeyboardInput",
+  components: { KeyboardRow },
   data() {
     return {
       keys: [
@@ -237,6 +89,11 @@ export default {
         { label: "►", width: "w-10", row: "5" },
       ],
     };
+  },
+  methods: {
+    getRowData(rowId) {
+      return this.keys.filter((key) => key.row === rowId);
+    },
   },
 };
 </script>
