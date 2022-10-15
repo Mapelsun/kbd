@@ -81,7 +81,7 @@ export default {
         { label: "ctrl", width: "w-10", row: "5" },
         { label: "opt", width: "w-10", row: "5" },
         { label: "cmd", width: "w-10", row: "5" },
-        { label: "", width: "w-full", row: "5", flexGrow: true },
+        { label: " ", width: "w-full", row: "5", flexGrow: true },
         { label: "cmd", width: "w-10", row: "5" },
         { label: "opt", width: "w-10", row: "5" },
         { label: "◄", width: "w-10", row: "5" },
