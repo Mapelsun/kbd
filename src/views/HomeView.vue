@@ -1,6 +1,9 @@
 <template>
   <main class="min-h-screen p-4 pt-20 bg-gray-50 flex flex-col items-center">
-    <TextAreaInput @toggleKbd="(val) => (toggleKeyboard = val)" />
+    <TextAreaInput
+      @toggleKbd="(val) => (toggleKeyboard = val)"
+      v-model="message"
+    />
     <KeyboardInput v-show="toggleKeyboard" />
   </main>
 </template>
@@ -14,6 +17,17 @@ export default {
   data() {
     return {
       toggleKeyboard: false,
+      message: "",
+    };
+  },
+  methods: {
+    getKey(val) {
+      this.message += val;
+    },
+  },
+  provide() {
+    return {
+      getKey: this.getKey,
     };
   },
 };
