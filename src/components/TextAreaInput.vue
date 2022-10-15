@@ -8,13 +8,14 @@
       >Vue Virtual Keyboard</label
     >
     <textarea
+      :value="modelValue"
+      @input="$emit('update:modelValue', $event.target.value)"
       id="texts"
       class="shadow form-textarea block w-full py-2 px-3 resize-none text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-gray-300"
       rows="5"
       placeholder="Hey..."
-      v-model="text"
       @focus="$emit('toggleKbd', true)"
-      @focusout="$emit('toggleKbd', false)"
+      @keyup="showKey($event)"
     ></textarea>
   </div>
 </template>
@@ -22,10 +23,17 @@
 <script>
 export default {
   name: "TextAreaInput",
+  props: ["modelValue"],
+  emits: ["update:modelValue"],
   data() {
     return {
       text: "",
     };
+  },
+  methods: {
+    showKey(e) {
+      console.log(e.key);
+    },
   },
 };
 </script>
