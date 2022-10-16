@@ -6,6 +6,8 @@
       v-model="message"
     />
     <KeyboardInput v-show="toggleKeyboard" />
+    <!-- <div>Message - {{ message }}</div>
+    <div>Select Input Key - {{ selectInputKey }}</div> -->
   </main>
 </template>
 
