@@ -42,7 +42,12 @@
       >
         <button
           class="overflow-hidden relative h-10 px-1 rounded flex justify-center shadow align-center bg-gradient-to-b from-gray-50 to-gray-400 pt-[2px] transition-all duration-75 top-0 active:top-1"
-          :class="[`${key.width}`]"
+          :class="[
+            `${key.width}`,
+            key.label.includes(appData.selectInputKey) && key.label !== ''
+              ? 'top-1'
+              : '',
+          ]"
         >
           <div
             class="w-full h-10 absolute -top-[2px] left-0 flex items-center justify-between blur-sm"
@@ -55,14 +60,12 @@
             ></div>
           </div>
           <div
-            class="relative h-7 border border-gray-100 flex-grow bg-gradient-to-b from-gray-200 to-gray-50 flex flex-col justify-between items-start text-[10px] pt-1 pl-1 rounded"
+            class="relative h-7 border border-gray-100 flex-grow bg-gradient-to-b from-gray-200 to-gray-50 flex pt-1 pl-1 rounded"
           >
-            <span
-              v-for="label in key.label"
-              :key="label"
-              class="leading-none"
-              >{{ label }}</span
-            >
+            <span v-if="switchBtnKey" class="leading-none">{{
+              key.label[0]
+            }}</span>
+            <span v-else class="leading-none">{{ key.label[1] }}</span>
           </div>
         </button>
       </div>
@@ -79,13 +82,33 @@ export default {
       type: Array,
       default: () => [],
     },
+    switchBtnKey: {
+      type: Boolean,
+      default: true,
+    },
   },
   methods: {
     sendKey(val) {
-      this.getKey(val);
+      if (val === "caps" || val === "shift") {
+        this.$emit("toggleBtnKey");
+      } else if (
+        val === "tab" ||
+        val === "ctrl" ||
+        val === "fn" ||
+        val === "win" ||
+        val === "alt"
+      ) {
+        return;
+      } else {
+        this.getKey(val);
+      }
     },
     sendKeyDual(val) {
-      this.getKey(val[1]);
+      if (this.switchBtnKey) {
+        this.getKey(val[0]);
+      } else {
+        this.getKey(val[1]);
+      }
     },
   },
 };
