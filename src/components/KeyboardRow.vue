@@ -11,7 +11,10 @@
           class="overflow-hidden relative h-10 px-1 rounded flex justify-center shadow align-center bg-gradient-to-b from-gray-50 to-gray-400 pt-[2px] transition-all duration-75 top-0 active:top-1"
           :class="[
             `${key.width}`,
-            appData.selectInputKey == key.label.toLowerCase() ? 'top-1' : '',
+            appData.selectInputKey == key.label.toLowerCase() &&
+            key.label !== ''
+              ? 'top-1'
+              : '',
           ]"
         >
           <div
@@ -35,7 +38,7 @@
         v-if="typeof key.label === 'object'"
         class="h-10 min-w-10"
         :class="[key.flexGrow ? 'flex-1' : '', `${key.width}`]"
-        @click="sendKey(key.label)"
+        @click="sendKeyDual(key.label)"
       >
         <button
           class="overflow-hidden relative h-10 px-1 rounded flex justify-center shadow align-center bg-gradient-to-b from-gray-50 to-gray-400 pt-[2px] transition-all duration-75 top-0 active:top-1"
@@ -80,6 +83,9 @@ export default {
   methods: {
     sendKey(val) {
       this.getKey(val);
+    },
+    sendKeyDual(val) {
+      this.getKey(val[1]);
     },
   },
 };

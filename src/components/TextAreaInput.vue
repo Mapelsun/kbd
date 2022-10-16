@@ -16,7 +16,7 @@
       placeholder="Hey..."
       @focus="$emit('toggleKbd', true)"
       @keydown="$emit('inputKey', $event.key)"
-      @keyup="$emit('inputKey', null)"
+      @keyup="$emit('inputKey', '')"
     ></textarea>
   </div>
 </template>
