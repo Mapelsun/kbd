@@ -15,7 +15,8 @@
       rows="5"
       placeholder="Hey..."
       @focus="$emit('toggleKbd', true)"
-      @keyup="showKey($event)"
+      @keydown="$emit('inputKey', $event.key)"
+      @keyup="$emit('inputKey', '')"
     ></textarea>
   </div>
 </template>
@@ -24,17 +25,7 @@
 export default {
   name: "TextAreaInput",
   props: ["modelValue"],
-  emits: ["update:modelValue"],
-  data() {
-    return {
-      text: "",
-    };
-  },
-  methods: {
-    showKey(e) {
-      console.log(e.key);
-    },
-  },
+  emits: ["update:modelValue", "toggleKbd", "inputKey"],
 };
 </script>
 

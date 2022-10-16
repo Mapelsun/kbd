@@ -9,7 +9,10 @@
     >
       <button
         class="overflow-hidden relative h-10 px-1 rounded flex justify-center shadow align-center bg-gradient-to-b from-gray-50 to-gray-400 pt-[2px] transition-all duration-75 top-0 active:top-1"
-        :class="[`${key.width}`]"
+        :class="[
+          `${key.width}`,
+          appData.selectInputKey == key.label.toLowerCase() ? 'top-1' : '',
+        ]"
       >
         <div
           class="w-full h-10 absolute -top-[2px] left-0 flex items-center justify-between blur-sm"
@@ -34,7 +37,7 @@
 <script>
 export default {
   name: "KeyboardRow",
-  inject: ["getKey"],
+  inject: ["getKey", "appData"],
   props: {
     keys: {
       type: Array,

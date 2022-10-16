@@ -2,6 +2,7 @@
   <main class="min-h-screen p-4 pt-20 bg-gray-50 flex flex-col items-center">
     <TextAreaInput
       @toggleKbd="(val) => (toggleKeyboard = val)"
+      @inputKey="(val) => (selectInputKey = val)"
       v-model="message"
     />
     <KeyboardInput v-show="toggleKeyboard" />
@@ -17,8 +18,14 @@ export default {
   data() {
     return {
       toggleKeyboard: false,
+      selectInputKey: "",
       message: "",
     };
+  },
+  computed: {
+    sendSelectedInputKey() {
+      return this.selectInputKey;
+    },
   },
   methods: {
     getKey(val) {
@@ -26,8 +33,14 @@ export default {
     },
   },
   provide() {
+    const appData = {};
+    Object.defineProperty(appData, "selectInputKey", {
+      enumerable: true,
+      get: () => this.selectInputKey,
+    });
     return {
       getKey: this.getKey,
+      appData,
     };
   },
 };
