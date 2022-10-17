@@ -2,10 +2,11 @@
   <main class="min-h-screen p-4 pt-20 bg-gray-50 flex flex-col items-center">
     <TextAreaInput
       @toggleKbd="(val) => (toggleKeyboard = val)"
-      @inputKey="(val) => (selectInputKey = val)"
+      @inputKey="setSelectInputKey"
       v-model="message"
+      ref="textAreaInput"
     />
-    <KeyboardInput v-show="toggleKeyboard" />
+    <KeyboardInput v-show="toggleKeyboard" ref="keyboardInput" />
   </main>
 </template>
 
@@ -28,6 +29,21 @@ export default {
     },
   },
   methods: {
+    setSelectInputKey(val) {
+      if (val === "Backspace") {
+        this.selectInputKey = "backspace";
+      } else if (val === "Shift") {
+        this.selectInputKey = "shift";
+        this.$refs.keyboardInput.toggleBtnKey();
+      } else if (val === "Enter") {
+        this.selectInputKey = "enter";
+      } else if (val === "CapsLock") {
+        this.selectInputKey = "caps";
+        this.$refs.keyboardInput.toggleBtnKey();
+      } else {
+        this.selectInputKey = val;
+      }
+    },
     getKey(val) {
       this.message += val;
     },
