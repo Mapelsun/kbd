@@ -1,5 +1,8 @@
 <template>
-  <main class="min-h-screen p-4 pt-20 bg-gray-50 flex flex-col items-center">
+  <main
+    class="min-h-screen p-4 pt-20 bg-gray-50 flex flex-col items-center"
+    @click.self="toggleKeyboard = false"
+  >
     <TextAreaInput
       @toggleKbd="(val) => (toggleKeyboard = val)"
       @inputKey="setSelectInputKey"
