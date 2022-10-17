@@ -6,8 +6,6 @@
       v-model="message"
     />
     <KeyboardInput v-show="toggleKeyboard" />
-    <!-- <div>Message - {{ message }}</div>
-    <div>Select Input Key - {{ selectInputKey }}</div> -->
   </main>
 </template>
 
@@ -33,6 +31,9 @@ export default {
     getKey(val) {
       this.message += val;
     },
+    deleteText() {
+      this.message = this.message.substring(0, this.message.length - 1);
+    },
   },
   provide() {
     const appData = {};
@@ -42,6 +43,7 @@ export default {
     });
     return {
       getKey: this.getKey,
+      deleteText: this.deleteText,
       appData,
     };
   },

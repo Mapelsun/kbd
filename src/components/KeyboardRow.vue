@@ -76,7 +76,7 @@
 <script>
 export default {
   name: "KeyboardRow",
-  inject: ["getKey", "appData"],
+  inject: ["getKey", "appData", "deleteText"],
   props: {
     keys: {
       type: Array,
@@ -91,8 +91,13 @@ export default {
     sendKey(val) {
       if (val === "caps" || val === "shift") {
         this.$emit("toggleBtnKey");
+      } else if (val === "backspace") {
+        this.deleteText();
+      } else if (val === "enter") {
+        this.getKey("\n");
+      } else if (val === "tab") {
+        this.getKey("        ");
       } else if (
-        val === "tab" ||
         val === "ctrl" ||
         val === "fn" ||
         val === "win" ||
