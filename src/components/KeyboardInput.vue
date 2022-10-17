@@ -77,7 +77,7 @@ export default {
         { label: ["g", "G"], width: "w-10", row: "3" },
         { label: ["h", "H"], width: "w-10", row: "3" },
         { label: ["j", "J"], width: "w-10", row: "3" },
-        { label: ["j", "K"], width: "w-10", row: "3" },
+        { label: ["k", "K"], width: "w-10", row: "3" },
         { label: ["l", "L"], width: "w-10", row: "3" },
         { label: ";", width: "w-10", row: "3" },
         { label: "'", width: "w-10", row: "3" },
