@@ -89,23 +89,28 @@ export default {
   },
   methods: {
     sendKey(val) {
-      if (val === "caps" || val === "shift") {
-        this.$emit("toggleBtnKey");
-      } else if (val === "backspace") {
-        this.deleteText();
-      } else if (val === "enter") {
-        this.getKey("\n");
-      } else if (val === "tab") {
-        this.getKey("        ");
-      } else if (
-        val === "ctrl" ||
-        val === "fn" ||
-        val === "win" ||
-        val === "alt"
-      ) {
-        return;
-      } else {
-        this.getKey(val);
+      switch (val) {
+        case "caps":
+        case "shift":
+          this.$emit("toggleBtnKey");
+          break;
+        case "backspace":
+          this.deleteText();
+          break;
+        case "enter":
+          this.getKey("\n");
+          break;
+        case "tab":
+          this.getKey("        ");
+          break;
+        case "ctrl":
+        case "fn":
+        case "win":
+        case "alt":
+          break;
+        default:
+          this.getKey(val);
+          break;
       }
     },
     sendKeyDual(val) {

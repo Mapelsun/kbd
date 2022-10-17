@@ -30,18 +30,24 @@ export default {
   },
   methods: {
     setSelectInputKey(val) {
-      if (val === "Backspace") {
-        this.selectInputKey = "backspace";
-      } else if (val === "Shift") {
-        this.selectInputKey = "shift";
-        this.$refs.keyboardInput.toggleBtnKey();
-      } else if (val === "Enter") {
-        this.selectInputKey = "enter";
-      } else if (val === "CapsLock") {
-        this.selectInputKey = "caps";
-        this.$refs.keyboardInput.toggleBtnKey();
-      } else {
-        this.selectInputKey = val;
+      switch (val) {
+        case "Backspace":
+          this.selectInputKey = "backspace";
+          break;
+        case "Shift":
+          this.selectInputKey = "shift";
+          this.$refs.keyboardInput.toggleBtnKey();
+          break;
+        case "Enter":
+          this.selectInputKey = "enter";
+          break;
+        case "CapsLock":
+          this.selectInputKey = "caps";
+          this.$refs.keyboardInput.toggleBtnKey();
+          break;
+        default:
+          this.selectInputKey = val;
+          break;
       }
     },
     getKey(val) {
